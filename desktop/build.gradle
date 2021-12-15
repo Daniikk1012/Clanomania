@@ -1,0 +1,23 @@
+plugins {
+    id 'com.wgsoft.game.clanomania.java-application-conventions'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+}
+
+sourceSets {
+    main {
+        resources.srcDirs = ['../android/src/main/assets']
+    }
+}
+
+application {
+    mainClass = 'com.wgsoft.game.clanomania.desktop.Launcher'
+}
+
+run {
+    workingDir = file('../android/src/main/assets')
+}

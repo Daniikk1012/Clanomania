@@ -1,0 +1,17 @@
+# Gradle
+.gradle/
+build/
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# Android
+android/src/main/libs/
+
+# Desktop
+desktop/bin/
+
+# Java
+*.class

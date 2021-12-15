@@ -1,0 +1,19 @@
+plugins {
+    id 'eclipse'
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+version = '0.1.0'
+
+ext {
+    gdxVersion = '1.10.0'
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = 8
+    targetCompatibility = 8
+}
