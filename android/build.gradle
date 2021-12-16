@@ -7,17 +7,18 @@ configurations {
     natives
 }
 
+ext {
+    androidVersion = 31
+    architectures = ['armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64']
+    jniLibsDir = 'libs'
+}
+
 dependencies {
     implementation project(':core')
     implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
-    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
-    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
-    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
-    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
-}
-
-ext {
-    androidVersion = 31
+    architectures.each {
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-$it"
+    }
 }
 
 android {
@@ -27,7 +28,8 @@ android {
 
     sourceSets {
         main {
-            jniLibs.srcDirs = ['src/main/libs']
+            assets.srcDirs = [assetsDir]
+            jniLibs.srcDirs = [jniLibsDir]
         }
     }
 
@@ -41,36 +43,20 @@ android {
 
 task copyAndroidNatives {
     doFirst {
-        file('src/main/libs/armeabi').mkdirs()
-        file('src/main/libs/armeabi-v7a').mkdirs()
-        file('src/main/libs/arm64-v8a').mkdirs()
-        file('src/main/libs/x86_64').mkdirs()
-        file('src/main/libs/x86').mkdirs()
+        architectures.each {
+            file("$jniLibsDir/$it").mkdirs()
+        }
 
-        configurations.natives.copy().files.each { jar ->
+        configurations.natives.files.each { jar ->
             def outputDir = null
 
-            if(jar.name.endsWith('natives-arm64-v8a.jar')) {
-                outputDir = file('src/main/libs/arm64-v8a')
+            architectures.each {
+                if(jar.name.endsWith("natives-${it}.jar")) {
+                    outputDir = file("$jniLibsDir/$it")
+                }
             }
 
-            if(jar.name.endsWith('natives-armeabi-v7a.jar')) {
-                outputDir = file('src/main/libs/armeabi-v7a')
-            }
-
-            if(jar.name.endsWith('natives-armeabi.jar')) {
-                outputDir = file('src/main/libs/armeabi')
-            }
-
-            if(jar.name.endsWith('natives-x86_64.jar')) {
-                outputDir = file('src/main/libs/x86_64')
-            }
-
-            if(jar.name.endsWith('natives-x86.jar')) {
-                outputDir = file('src/main/libs/x86')
-            }
-
-            if(outputDir != null) {
+            if(outputDir) {
                 copy {
                     from zipTree(jar)
                     into outputDir

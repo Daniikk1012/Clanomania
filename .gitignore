@@ -8,7 +8,7 @@ build/
 .project
 
 # Android
-android/src/main/libs/
+android/libs/
 
 # Desktop
 desktop/bin/

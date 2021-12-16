@@ -11,7 +11,7 @@ dependencies {
 
 sourceSets {
     main {
-        resources.srcDirs = ['../android/src/main/assets']
+        resources.srcDirs = [assetsDir]
     }
 }
 
