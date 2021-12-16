@@ -18,7 +18,3 @@ sourceSets {
 application {
     mainClass = 'com.wgsoft.game.clanomania.desktop.Launcher'
 }
-
-run {
-    workingDir = file('../android/src/main/assets')
-}
