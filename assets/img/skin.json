@@ -1,1 +1,21 @@
-{}
+{
+  "Color": {
+    "background-pixel": {
+      "hex": "#d5efd2"
+    },
+    "background-image": {
+      "hex": "#e3f4e1"
+    }
+  },
+  "TintedDrawable": {
+    "background-pixel": {
+      "name": "nearest/pixel",
+      "color": "background-pixel"
+    }
+  },
+  "TiledDrawable": {
+    "background-image": {
+      "region": "background"
+    }
+  }
+}

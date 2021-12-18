@@ -1,0 +1,5 @@
+{
+  "combineSubdirectories": true,
+  "filterMin": "Linear",
+  "filterMag": "Linear"
+}

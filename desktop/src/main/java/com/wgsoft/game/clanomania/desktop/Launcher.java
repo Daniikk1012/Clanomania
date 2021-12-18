@@ -9,7 +9,7 @@ public final class Launcher {
         final Lwjgl3ApplicationConfiguration configuration =
             new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("Clanomania");
-        configuration.setWindowedMode(800, 480);
+        configuration.setWindowedMode(480, 800);
 
         new Lwjgl3Application(new Clanomania(), configuration);
     }
