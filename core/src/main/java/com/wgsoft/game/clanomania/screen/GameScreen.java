@@ -1,8 +1,10 @@
 package com.wgsoft.game.clanomania.screen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.wgsoft.actor.OpacityButton;
 import com.wgsoft.game.clanomania.Clanomania;
 import com.wgsoft.game.clanomania.Constants;
 import com.wgsoft.game.clanomania.actor.Background;
@@ -14,6 +16,13 @@ public final class GameScreen extends ScreenAdapter {
         stage = new Stage(new ScreenViewport(), game.getSpriteBatch());
 
         stage.addActor(new Background(game.getSkin()));
+
+        stage.addActor(new OpacityButton(game.getSkin().getDrawable("clan")));
+    }
+
+    @Override
+    public void show() {
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -30,6 +39,11 @@ public final class GameScreen extends ScreenAdapter {
                 : Constants.SCREEN_WIDTH / width
         );
         stage.getViewport().update(width, height, true);
+    }
+
+    @Override
+    public void hide() {
+        Gdx.input.setInputProcessor(null);
     }
 
     @Override
