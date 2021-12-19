@@ -2,11 +2,10 @@ package com.wgsoft.game.clanomania.screen;
 
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.wgsoft.game.clanomania.Clanomania;
 import com.wgsoft.game.clanomania.Constants;
-import com.wgsoft.game.clanomania.actor.BackgroundImage;
+import com.wgsoft.game.clanomania.actor.Background;
 
 public final class GameScreen extends ScreenAdapter {
     private final Stage stage;
@@ -14,12 +13,7 @@ public final class GameScreen extends ScreenAdapter {
     public GameScreen(final Clanomania game) {
         stage = new Stage(new ScreenViewport(), game.getSpriteBatch());
 
-        final Image backgroundPixel =
-            new Image(game.getSkin(), "background-pixel");
-        backgroundPixel.setFillParent(true);
-        stage.addActor(backgroundPixel);
-
-        stage.addActor(new BackgroundImage(game.getSkin()));
+        stage.addActor(new Background(game.getSkin()));
     }
 
     @Override
