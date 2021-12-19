@@ -31,7 +31,7 @@ public final class GameScreen extends ScreenAdapter {
     @Override
     public void resize(final int width, final int height) {
         ((ScreenViewport)stage.getViewport()).setUnitsPerPixel(
-            Constants.SCREEN_WIDTH * height > width * Constants.SCREEN_HEIGHT
+            width * Constants.SCREEN_HEIGHT > Constants.SCREEN_WIDTH * height
                 ? Constants.SCREEN_HEIGHT / height
                 : Constants.SCREEN_WIDTH / width
         );
