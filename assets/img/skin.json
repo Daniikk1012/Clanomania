@@ -5,6 +5,36 @@
     },
     "background-image": {
       "hex": "#e3f4e1"
+    },
+    "clan-0": {
+      "hex": "#e59792"
+    },
+    "clan-1": {
+      "hex": "#e5b592"
+    },
+    "clan-2": {
+      "hex": "#e5da92"
+    },
+    "clan-3": {
+      "hex": "#b2e592"
+    },
+    "clan-4": {
+      "hex": "#92e5d7"
+    },
+    "clan-5": {
+      "hex": "#92bde5"
+    },
+    "clan-6": {
+      "hex": "#d692e5"
+    },
+    "clan-7": {
+      "hex": "#c192e5"
+    }
+  },
+  "BitmapFont": {
+    "montserrat-regular-medium": {
+      "file": "fnt/montserrat-regular.fnt",
+      "scaledSize": 96
     }
   },
   "TintedDrawable": {
@@ -16,6 +46,11 @@
   "TiledDrawable": {
     "background-image": {
       "region": "background"
+    }
+  },
+  "LabelStyle": {
+    "montserrat-regular-medium": {
+      "font": "montserrat-regular-medium"
     }
   }
 }

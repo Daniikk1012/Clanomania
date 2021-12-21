@@ -3,7 +3,10 @@ package com.wgsoft.game.clanomania;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.wgsoft.game.clanomania.screen.GameScreen;
@@ -20,6 +23,15 @@ public final class Clanomania extends Game {
         spriteBatch = new SpriteBatch();
 
         skin = new Skin(Gdx.files.internal("img/skin.json"));
+
+        for(final BitmapFont font: skin.getAll(BitmapFont.class).values()) {
+            for(final TextureRegion region: font.getRegions()) {
+                region.getTexture().setFilter(
+                    Texture.TextureFilter.Linear,
+                    Texture.TextureFilter.Linear
+                );
+            }
+        }
 
         gameScreen = new GameScreen(this);
 

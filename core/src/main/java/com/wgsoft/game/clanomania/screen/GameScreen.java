@@ -3,11 +3,13 @@ package com.wgsoft.game.clanomania.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.wgsoft.actor.OpacityButton;
 import com.wgsoft.game.clanomania.Clanomania;
 import com.wgsoft.game.clanomania.Constants;
 import com.wgsoft.game.clanomania.actor.Background;
+import com.wgsoft.game.clanomania.actor.game.Clan;
 
 public final class GameScreen extends ScreenAdapter {
     private final Stage stage;
@@ -17,7 +19,19 @@ public final class GameScreen extends ScreenAdapter {
 
         stage.addActor(new Background(game.getSkin()));
 
-        stage.addActor(new OpacityButton(game.getSkin().getDrawable("clan")));
+        final HorizontalGroup clans = new HorizontalGroup();
+        clans.setFillParent(true);
+        clans.space(32f);
+
+        for(final Clan.ClanColor color: Clan.ClanColor.values()) {
+            clans.addActor(new Clan(color.toString(), game.getSkin(), color));
+        }
+
+        final ScrollPane scrollPane = new ScrollPane(clans);
+        scrollPane.setFillParent(true);
+        stage.addActor(scrollPane);
+
+        stage.setScrollFocus(scrollPane);
     }
 
     @Override
