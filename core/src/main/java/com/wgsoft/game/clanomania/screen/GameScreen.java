@@ -5,7 +5,9 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.wgsoft.actor.OpacityCheckBox;
 import com.wgsoft.game.clanomania.Clanomania;
 import com.wgsoft.game.clanomania.Constants;
 import com.wgsoft.game.clanomania.actor.Background;
@@ -24,7 +26,18 @@ public final class GameScreen extends ScreenAdapter {
         clans.space(32f);
 
         for(final Clan.ClanColor color: Clan.ClanColor.values()) {
-            clans.addActor(new Clan(color.toString(), game.getSkin(), color));
+            final VerticalGroup group = new VerticalGroup();
+            group.space(32f);
+
+            final OpacityCheckBox arrow =
+                new OpacityCheckBox(game.getSkin(), "arrow");
+            arrow.setChecked(true);
+
+            group.addActor(arrow);
+
+            group.addActor(new Clan(color.toString(), game.getSkin(), color));
+
+            clans.addActor(group);
         }
 
         final ScrollPane scrollPane = new ScrollPane(clans);

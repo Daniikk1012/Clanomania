@@ -52,5 +52,12 @@
     "montserrat-regular-medium": {
       "font": "montserrat-regular-medium"
     }
+  },
+  "CheckBoxStyle": {
+    "arrow": {
+      "font": "montserrat-regular-medium",
+      "checkboxOn": "arrow",
+      "checkboxOff": "arrow"
+    }
   }
 }
