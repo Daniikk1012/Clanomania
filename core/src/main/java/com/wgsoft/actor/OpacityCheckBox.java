@@ -25,9 +25,9 @@ public class OpacityCheckBox extends CheckBox {
     }
 
     private void initialize() {
-        final MutableBoolean wasChecked = new MutableBoolean();
+        addAction(Actions.alpha(0f));
 
-        getColor().a = 0f;
+        final MutableBoolean wasChecked = new MutableBoolean();
 
         addAction(Actions.forever(Actions.run(() -> {
             if(isChecked()) {
@@ -43,6 +43,7 @@ public class OpacityCheckBox extends CheckBox {
 
                 wasChecked.value = false;
             }
+            getColor().b = 0f;
         })));
     }
 }
