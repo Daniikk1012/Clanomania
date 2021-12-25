@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Null;
 import com.wgsoft.util.MutableBoolean;
 
-public final class OpacityButton extends Button {
+public class OpacityButton extends Button {
     private static final float PRESSED_OPACITY = 0.5f;
     private static final float DURATION = 0.125f;
 
