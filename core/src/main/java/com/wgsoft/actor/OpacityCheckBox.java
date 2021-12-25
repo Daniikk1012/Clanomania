@@ -1,11 +1,10 @@
 package com.wgsoft.actor;
 
 import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.wgsoft.util.MutableBoolean;
 
 public class OpacityCheckBox extends CheckBox {
     private static final float DURATION = 0.2f;
@@ -26,15 +25,24 @@ public class OpacityCheckBox extends CheckBox {
     }
 
     private void initialize() {
-        addListener(new ChangeListener() {
-            @Override
-            public void changed(final ChangeEvent event, final Actor actor) {
-                if(isChecked()) {
+        final MutableBoolean wasChecked = new MutableBoolean();
+
+        getColor().a = 0f;
+
+        addAction(Actions.forever(Actions.run(() -> {
+            if(isChecked()) {
+                if(!wasChecked.value) {
                     addAction(Actions.alpha(1f, DURATION, Interpolation.fade));
-                } else {
+                }
+
+                wasChecked.value = true;
+            } else {
+                if(wasChecked.value) {
                     addAction(Actions.alpha(0f, DURATION, Interpolation.fade));
                 }
+
+                wasChecked.value = false;
             }
-        });
+        })));
     }
 }
