@@ -53,6 +53,11 @@
       "font": "montserrat-regular-medium"
     }
   },
+  "ButtonStyle": {
+    "clan": {
+      "up": "clan"
+    }
+  },
   "CheckBoxStyle": {
     "arrow": {
       "font": "montserrat-regular-medium",

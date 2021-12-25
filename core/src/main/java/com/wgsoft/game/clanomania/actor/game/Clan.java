@@ -26,8 +26,7 @@ public final class Clan extends Stack {
     }
 
     public Clan(final String name, final Skin skin, final ClanColor color) {
-        final OpacityButton button =
-            new OpacityButton(skin.getDrawable("clan"));
+        final OpacityButton button = new OpacityButton(skin, "clan");
         button.setColor(skin.getColor("clan-" + color.ordinal()));
         add(button);
 
