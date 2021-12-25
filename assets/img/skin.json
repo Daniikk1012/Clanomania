@@ -61,8 +61,7 @@
   "CheckBoxStyle": {
     "arrow": {
       "font": "montserrat-regular-medium",
-      "checkboxOn": "arrow",
-      "checkboxOff": "arrow"
+      "up": "arrow"
     }
   }
 }
