@@ -43,7 +43,6 @@ public class OpacityCheckBox extends CheckBox {
 
                 wasChecked.value = false;
             }
-            getColor().b = 0f;
         })));
     }
 }
