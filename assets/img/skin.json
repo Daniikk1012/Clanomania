@@ -32,6 +32,10 @@
     }
   },
   "BitmapFont": {
+    "placeholder": {
+      "file": "fnt/montserrat-regular.fnt",
+      "scaledSize": 1
+    },
     "montserrat-regular-medium": {
       "file": "fnt/montserrat-regular.fnt",
       "scaledSize": 96
@@ -60,7 +64,7 @@
   },
   "CheckBoxStyle": {
     "arrow": {
-      "font": "montserrat-regular-medium",
+      "font": "placeholder",
       "up": "arrow"
     }
   }
