@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.wgsoft.util.MutableBoolean;
 
-public class OpacityCheckBox extends CheckBox {
+public final class OpacityCheckBox extends CheckBox {
     private static final float DURATION = 0.2f;
 
     public OpacityCheckBox(final CheckBox.CheckBoxStyle style) {
