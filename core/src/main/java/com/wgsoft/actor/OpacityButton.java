@@ -18,7 +18,7 @@ public final class OpacityButton extends Button {
         initialize();
     }
 
-    public OpacityButton(final Actor child, final Button.ButtonStyle style) {
+    public OpacityButton(final Actor child, final ButtonStyle style) {
         super(child, style);
         initialize();
     }
@@ -37,7 +37,7 @@ public final class OpacityButton extends Button {
         initialize();
     }
 
-    public OpacityButton(final Button.ButtonStyle style) {
+    public OpacityButton(final ButtonStyle style) {
         super(style);
         initialize();
     }
