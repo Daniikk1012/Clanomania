@@ -38,7 +38,7 @@
     },
     "montserrat-regular-medium": {
       "file": "fnt/montserrat-regular.fnt",
-      "scaledSize": 96
+      "scaledSize": 64
     }
   },
   "TintedDrawable": {
