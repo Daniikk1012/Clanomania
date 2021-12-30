@@ -1,5 +1,8 @@
 {
   "Color": {
+    "black": {
+      "hex": "#000000"
+    },
     "background-pixel": {
       "hex": "#d5efd2"
     },
@@ -60,6 +63,13 @@
   "ButtonStyle": {
     "clan": {
       "up": "clan"
+    }
+  },
+  "TextButtonStyle": {
+    "action": {
+      "up": "action",
+      "font": "montserrat-regular-medium",
+      "fontColor": "black"
     }
   },
   "CheckBoxStyle": {

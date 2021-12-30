@@ -6,8 +6,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.wgsoft.actor.OpacityCheckBox;
+import com.wgsoft.actor.OpacityTextButton;
 import com.wgsoft.game.clanomania.Clanomania;
 import com.wgsoft.game.clanomania.Constants;
 import com.wgsoft.game.clanomania.actor.Background;
@@ -21,8 +24,13 @@ public final class GameScreen extends ScreenAdapter {
 
         stage.addActor(new Background(game.getSkin()));
 
+        final Table root = new Table();
+        root.setFillParent(true);
+
+        root.add().expandY();
+        root.row();
+
         final HorizontalGroup clans = new HorizontalGroup();
-        clans.setFillParent(true);
         clans.space(32f);
 
         final ButtonGroup<OpacityCheckBox> arrows = new ButtonGroup<>();
@@ -36,10 +44,29 @@ public final class GameScreen extends ScreenAdapter {
         arrows.getButtons().get(0).setChecked(true);
 
         final ScrollPane scrollPane = new ScrollPane(clans);
-        scrollPane.setFillParent(true);
-        stage.addActor(scrollPane);
+        root.add(scrollPane).growX();
 
         stage.setScrollFocus(scrollPane);
+
+        root.row();
+        root.add().expandY();
+        root.row();
+
+        final HorizontalGroup actions = new HorizontalGroup();
+        actions.space(32f);
+        actions.align(Align.center);
+
+        actions.addActor(
+            new OpacityTextButton("Pass", game.getSkin(), "action")
+        );
+
+        actions.addActor(
+            new OpacityTextButton("Switch", game.getSkin(), "action")
+        );
+
+        root.add(actions);
+
+        stage.addActor(root);
     }
 
     @Override
