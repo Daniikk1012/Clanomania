@@ -77,5 +77,11 @@
       "font": "placeholder",
       "up": "arrow"
     }
+  },
+  "SliderStyle": {
+    "default": {
+      "background": "slider",
+      "knob": "knob"
+    }
   }
 }

@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -50,6 +51,12 @@ public final class GameScreen extends ScreenAdapter {
 
         root.row();
         root.add().expandY();
+        root.row();
+
+        final Slider slider =
+            new Slider(1f, 100f, 1f, false, game.getSkin(), "default");
+        root.add(slider).growX().pad(32f);
+
         root.row();
 
         final HorizontalGroup actions = new HorizontalGroup();
