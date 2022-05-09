@@ -26,6 +26,12 @@ android {
     compileSdkVersion androidVersion
     namespace 'com.wgsoft.game.clanomania'
 
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+
     sourceSets {
         main {
             assets.srcDirs = [assetsDir]

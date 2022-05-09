@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.+'
+        classpath 'com.android.tools.build:gradle:7.2.+'
         classpath "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
     }
 }
@@ -21,6 +21,10 @@ task texturePacker {
     outputs.dir output
 
     doLast {
-        com.badlogic.gdx.tools.texturepacker.TexturePacker.process input, output, 'skin'
+        com.badlogic.gdx.tools.texturepacker.TexturePacker.process(
+            input,
+            output,
+            'skin',
+        )
     }
 }
